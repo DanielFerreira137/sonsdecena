@@ -1,0 +1,191 @@
+.theatre-curtain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  z-index: 9999;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* Curtain base styles */
+.curtain {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+}
+
+.left-curtain {
+  left: 0;
+  animation: leftCurtainOpen 2.5s ease-in-out 0.5s forwards;
+}
+
+.right-curtain {
+  right: 0;
+  animation: rightCurtainOpen 2.5s ease-in-out 0.5s forwards;
+}
+
+/* Curtain panels */
+.curtain-panel {
+  flex: 1;
+  background: linear-gradient(90deg, 
+    #8B0000 0%, 
+    #DC143C 20%, 
+    #B22222 40%, 
+    #DC143C 60%, 
+    #8B0000 80%, 
+    #DC143C 100%
+  );
+  border-bottom: 2px solid #4A0000;
+  box-shadow: 
+    inset 0 0 20px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(139, 0, 0, 0.3);
+  position: relative;
+}
+
+.curtain-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    transparent 100%
+  );
+  animation: curtainShine 3s ease-in-out infinite;
+}
+
+/* Curtain opening animations */
+@keyframes leftCurtainOpen {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes rightCurtainOpen {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Curtain shine effect */
+@keyframes curtainShine {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Stage light effect */
+.stage-light {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.4) 30%,
+    rgba(255, 255, 255, 0.1) 60%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  animation: stageLight 3s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes stageLight {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+/* Loading text */
+.loading-text {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.loading-text span {
+  animation: textGlow 1.5s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.1s);
+}
+
+.loading-text span:nth-child(1) { --i: 0; }
+.loading-text span:nth-child(2) { --i: 1; }
+.loading-text span:nth-child(3) { --i: 2; }
+.loading-text span:nth-child(4) { --i: 3; }
+.loading-text span:nth-child(5) { --i: 4; }
+.loading-text span:nth-child(6) { --i: 5; }
+.loading-text span:nth-child(7) { --i: 6; }
+.loading-text span:nth-child(8) { --i: 7; }
+.loading-text span:nth-child(9) { --i: 8; }
+.loading-text span:nth-child(10) { --i: 9; }
+
+@keyframes textGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .loading-text {
+    font-size: 18px;
+    gap: 4px;
+  }
+  
+  .stage-light {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Remove the fade out animation since we want to reveal the website */
+.theatre-curtain-container {
+  animation: none;
+} 
