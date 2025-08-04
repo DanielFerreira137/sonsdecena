@@ -45,10 +45,10 @@ const Header: React.FC = () => {
         <nav className="nav">
           <ul className="nav-list">
             <li><Link to="/" className="nav-link">Home</Link></li>
-            <li><button onClick={handleSobreNosClick} className="nav-link">Sobre Nós</button></li>
+            <li><Link to="/#about" onClick={handleSobreNosClick} className="nav-link">Sobre Nós</Link></li>
             <li><Link to="/artists" className="nav-link">Artistas</Link></li>
             <li><Link to="/events" className="nav-link">Eventos</Link></li>
-            <li><button onClick={handleContatoClick} className="nav-link">Contacto</button></li>
+            <li><Link to="/#contact" onClick={handleContatoClick} className="nav-link">Contacto</Link></li>
           </ul>
         </nav>
         <div className="header-actions">

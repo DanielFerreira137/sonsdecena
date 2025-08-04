@@ -3,14 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useArtistsWithCategories } from '../hooks/useArtistsWithCategories';
 import './SingerSlider.css';
 
-interface Singer {
-  id: string;
-  name: string;
-  photo: string;
-  genre?: string;
-  description?: string;
-  categoryName?: string;
-}
+
 
 const SingerSlider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

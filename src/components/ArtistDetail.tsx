@@ -4,24 +4,7 @@ import { useArtistsWithCategories } from '../hooks/useArtistsWithCategories';
 import { useEventsForArtist } from '../hooks/useEventsForArtist';
 import './ArtistDetail.css';
 
-interface Singer {
-  id: string;
-  name: string;
-  photo: string;
-  genre?: string;
-  description?: string;
-  categoryName?: string;
-}
 
-interface Event {
-  id: string;
-  name?: string;
-  date: any;
-  address?: string;
-  description?: string;
-  price?: string;
-  image?: string;
-}
 
 const ArtistDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();

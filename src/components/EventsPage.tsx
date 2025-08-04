@@ -3,24 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAllEventsWithArtists } from '../hooks/useAllEventsWithArtists';
 import './EventsPage.css';
 
-interface Artist {
-  id: string;
-  name: string;
-  photo: string;
-  genre?: string;
-  categoryName?: string;
-}
 
-interface Event {
-  id: string;
-  name?: string;
-  date: any;
-  address?: string;
-  description?: string;
-  price?: string;
-  image?: string;
-  artist?: Artist;
-}
 
 const EventsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -112,7 +95,7 @@ const EventsPage: React.FC = () => {
                   <div className="event-image">
                     <img 
                       src={event.image} 
-                     
+                      alt={event.name || 'Evento'}
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.src = 'https://via.placeholder.com/400x250/FFD700/000?text=Evento';

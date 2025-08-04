@@ -3,14 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useArtistsWithCategories } from '../hooks/useArtistsWithCategories';
 import './ArtistsList.css';
 
-interface Singer {
-  id: string;
-  name: string;
-  photo: string;
-  genre?: string;
-  description?: string;
-  categoryName?: string;
-}
+
 
 const ArtistsList: React.FC = () => {
   const navigate = useNavigate();

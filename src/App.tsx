@@ -4,7 +4,7 @@ import './App.css';
 import TheatreCurtainPreloader from './components/TheatreCurtainPreloader';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import SingerSlider from './components/SingerSlider';
+
 import ArtistsList from './components/ArtistsList';
 import ArtistDetail from './components/ArtistDetail';
 import EventsPage from './components/EventsPage';
