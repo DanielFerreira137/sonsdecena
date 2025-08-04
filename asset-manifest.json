@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/sonsdecena/static/css/main.5fa89bb0.css",
+    "main.js": "/sonsdecena/static/js/main.90368e61.js",
+    "static/js/453.0bf3c277.chunk.js": "/sonsdecena/static/js/453.0bf3c277.chunk.js",
+    "static/media/banner.jpg": "/sonsdecena/static/media/banner.77cd37677cc475df2ae8.jpg",
+    "static/media/logo.jpg": "/sonsdecena/static/media/logo.144645f6bc809f498860.jpg",
+    "index.html": "/sonsdecena/index.html",
+    "main.5fa89bb0.css.map": "/sonsdecena/static/css/main.5fa89bb0.css.map",
+    "main.90368e61.js.map": "/sonsdecena/static/js/main.90368e61.js.map",
+    "453.0bf3c277.chunk.js.map": "/sonsdecena/static/js/453.0bf3c277.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5fa89bb0.css",
+    "static/js/main.90368e61.js"
+  ]
+}
