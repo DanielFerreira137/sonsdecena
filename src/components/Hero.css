@@ -38,12 +38,15 @@
 }
 
 .hero-title {
+  font-family: 'Orbitron', 'Aerospace Bold', 'Arial Black', sans-serif;
   font-size: 4rem;
-  font-weight: bold;
+  font-weight: 900;
   margin-bottom: 1rem;
   color: #FFD700;
   text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
   line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .hero-subtitle {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Hero.css';
 import Contact from './Contact';
 import SingerSlider from './SingerSlider';
@@ -7,6 +8,15 @@ import SingerSlider from './SingerSlider';
 import bannerImage from '../assets/images/banner/banner.jpg';
 
 const Hero: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleDiscoverArtists = () => {
+    navigate('/artists');
+  };
+
+  const handleViewEvents = () => {
+    navigate('/events');
+  };
   return (
     <>
       <section className="hero" id="home">
@@ -23,33 +33,20 @@ const Hero: React.FC = () => {
           <div className="hero-overlay"></div>
         </div>
             <h1 className="hero-title">
-              Sons de Cena
-              <span className="hero-subtitle">A música não bate à porta. Ela entra.</span>
+              SONS DE CENA
+              <span className="hero-subtitle">A música não bate à porta, ela entra.</span>
             </h1>
             <p className="hero-description">
-              Abra a janela. Ouça. Há vozes a vibrar do outro lado. Batidas que pedem palco. 
-              Artistas que não cabem no silêncio e estão prontos para ocupar o seu espaço.
+              Abra a janela. Ouça! Há vozes a vibrar do outro lado, batidas que pedem palco,  
+              artistas que não cabem no silêncio e estão prontos para ocupar o seu espaço.
             </p>
             <div className="hero-buttons">
-              <button className="hero-btn primary">Descobrir Artistas</button>
-              <button className="hero-btn secondary">Ver Eventos</button>
+              <button className="hero-btn primary" onClick={handleDiscoverArtists}>Descobrir Artistas</button>
+              <button className="hero-btn secondary" onClick={handleViewEvents}>Ver Eventos</button>
             </div>
           </div>
           
-          <div className="hero-stats">
-            <div className="stat">
-              <span className="stat-number">500+</span>
-              <span className="stat-label">Palcos Ocupados</span>
-            </div>
-            <div className="stat">
-              <span className="stat-number">50+</span>
-              <span className="stat-label">Vozes Únicas</span>
-            </div>
-            <div className="stat">
-              <span className="stat-number">98%</span>
-              <span className="stat-label">Satisfação</span>
-            </div>
-          </div>
+          
         </div>
       </section>
 
@@ -63,10 +60,12 @@ const Hero: React.FC = () => {
             <h2 className="about-title">Sobre Nós</h2>
             <div className="about-text">
               <p className="about-paragraph">
-                Sons de Cena não é uma lista. É um radar de talento ativo. Uma galeria sonora em carne e osso.
+                Sons de Cena não é uma lista. <br />
+                É um radar de talento ativo, uma galeria sonora em carne e osso.
               </p>
               <p className="about-paragraph">
-                Cada nome aqui tem corpo, tem som, tem presença. Está disponível. Está ao seu alcance.
+                Cada nome aqui tem corpo, tem som, tem presença. Está disponível e 
+                ao seu alcance.
               </p>
               <div className="about-features">
                 <div className="feature">
@@ -83,8 +82,8 @@ const Hero: React.FC = () => {
                 </div>
               </div>
               <p className="about-paragraph highlight">
-                Não procure no escuro. A cena está iluminada. Passe os olhos. Ouça com atenção. 
-                O próximo a subir ao seu palco está aqui — e já se apresentou.
+                Não procure no escuro, a cena está iluminada. Passe os olhos e ouça com atenção!
+                O próximo a subir ao seu palco está aqui e já se apresentou.
               </p>
             </div>
           </div>

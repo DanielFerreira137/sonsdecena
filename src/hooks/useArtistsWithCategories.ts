@@ -13,6 +13,9 @@ interface Singer {
   photo: string;
   genre?: string;
   description?: string;
+  facebook?: string;
+  instagram?: string;
+  email?: string;
   category?: any; // Firestore reference
   categoryName?: string; // Resolved category name
 }

@@ -169,9 +169,34 @@ const ArtistDetail: React.FC = () => {
             {/* Coluna da Direita: Informações do Artista */}
             <div className="artist-right-column">
               <div className="artist-detail-info">
-                <h1>{artist.name}</h1>
-                {artist.categoryName && <p className="artist-genre">{artist.categoryName}</p>}
+                <div className="artist-name-section">
+                  <h1>{artist.name}</h1>
+                  {artist.email && (
+                    <a href={`mailto:${artist.email}`} className="contact-btn">
+                      Entrar em Contacto
+                    </a>
+                  )}
+                </div>
+                {artist.categoryName && (
+                  <div className="artist-genre">
+                    <span>{artist.categoryName}</span>
+                    {/* Ícones Sociais */}
+                    <div className="artist-social-icons">
+                      {artist.facebook && (
+                        <a href={`https://${artist.facebook}`} target="_blank" rel="noopener noreferrer" className="social-icon">
+                          <i className="fab fa-facebook-f"></i>
+                        </a>
+                      )}
+                      {artist.instagram && (
+                        <a href={`https://${artist.instagram}`} target="_blank" rel="noopener noreferrer" className="social-icon">
+                          <i className="fab fa-instagram"></i>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                )}
                 {artist.genre && <p className="artist-genre">{artist.genre}</p>}
+                
                 {artist.description && (
                   <div className="artist-description">
                     <h3>Sobre o Artista</h3>

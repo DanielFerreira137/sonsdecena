@@ -41,17 +41,24 @@
 .social-link {
   color: #FFD700;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem;
   border: 1px solid #FFD700;
-  border-radius: 20px;
+  border-radius: 50%;
   transition: all 0.3s ease;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 215, 0, 0.1);
 }
 
 .social-link:hover {
   background: #FFD700;
   color: #000;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
 }
 
 .footer-links {
