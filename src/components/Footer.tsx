@@ -6,9 +6,9 @@ const Footer: React.FC = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h3>Sons de Cena</h3>
-          <p>A música não bate à porta. Ela entra.</p>
-          <p>Conectamos vozes únicas a palcos que as merecem.</p>
+          <a href="https://dist-post.com" target="_blank" rel="noopener noreferrer">
+            <img src="/images/logo/dist-post-logo.png" alt="Dist-Post Logo" />
+          </a>
           <div className="social-links">
             <a href="https://facebook.com" className="social-link" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-facebook-f"></i>
@@ -52,13 +52,15 @@ const Footer: React.FC = () => {
       
       <div className="footer-bottom">
         <div className="footer-bottom-content">
-          <p>&copy; 2024 Sons de Cena. A cena está iluminada.</p>
+          <p>&copy; 2025 Dist-Post. A cena está iluminada.</p>
           <div className="footer-bottom-links">
             <a href="#privacy">Privacidade</a>
             <a href="#terms">Termos</a>
           </div>
         </div>
       </div>
+      
+  
       
       
     </footer>

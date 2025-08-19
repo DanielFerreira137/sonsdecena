@@ -32,6 +32,34 @@
   margin-bottom: 1rem;
 }
 
+/* Logo da Dist-Post na primeira seção */
+.footer-section img {
+  width: 180px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-section img:hover {
+  transform: scale(1.05);
+}
+
+.footer-section p:first-of-type {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #FFD700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.footer-section p:last-of-type {
+  font-size: 1rem;
+  opacity: 0.8;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
 .social-links {
   display: flex;
   gap: 1rem;
@@ -85,6 +113,7 @@
 .hours p {
   margin-bottom: 0.5rem;
   opacity: 0.9;
+  color: #fff;
 }
 
 .footer-bottom {
@@ -125,6 +154,69 @@
   opacity: 0.7;
 }
 
+/* Seção Dist-Post */
+.footer-dist-post {
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 0;
+  margin-top: 0;
+}
+
+.footer-dist-post-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.dist-post-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dist-post-info p {
+  color: #fff;
+  opacity: 0.7;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.dist-post-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: #FFD700;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.dist-post-link:hover {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+.dist-post-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.dist-post-link:hover .dist-post-logo {
+  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(45deg);
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .footer-container {
@@ -139,5 +231,23 @@
   
   .social-links {
     justify-content: center;
+  }
+  
+  .dist-post-info {
+    gap: 0.8rem;
+  }
+  
+  .dist-post-info p {
+    font-size: 0.85rem;
+  }
+  
+  .dist-post-link {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .dist-post-logo {
+    width: 25px;
+    height: 25px;
   }
 } 
