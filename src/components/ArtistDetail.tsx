@@ -192,6 +192,16 @@ const ArtistDetail: React.FC = () => {
                           <i className="fab fa-instagram"></i>
                         </a>
                       )}
+                      {artist.spotify && (
+                        <a href={`https://${artist.spotify}`} target="_blank" rel="noopener noreferrer" className="social-icon">
+                          <i className="fab fa-spotify"></i>
+                        </a>
+                      )}
+                      {artist.youtube && (
+                        <a href={`https://${artist.youtube}`} target="_blank" rel="noopener noreferrer" className="social-icon">
+                          <i className="fab fa-youtube"></i>
+                        </a>
+                      )}
                     </div>
                   </div>
                 )}

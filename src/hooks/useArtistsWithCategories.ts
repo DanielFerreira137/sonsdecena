@@ -15,6 +15,8 @@ interface Singer {
   description?: string;
   facebook?: string;
   instagram?: string;
+  spotify?: string;
+  youtube?: string;
   email?: string;
   category?: any; // Firestore reference
   categoryName?: string; // Resolved category name

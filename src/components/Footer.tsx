@@ -7,7 +7,8 @@ const Footer: React.FC = () => {
       <div className="footer-container">
         <div className="footer-section">
           <h3>Sons de Cena</h3>
-          <p>A música não bate à porta. Ela entra. Conectamos vozes únicas a palcos que as merecem.</p>
+          <p>A música não bate à porta. Ela entra.</p>
+          <p>Conectamos vozes únicas a palcos que as merecem.</p>
           <div className="social-links">
             <a href="https://facebook.com" className="social-link" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-facebook-f"></i>
@@ -22,8 +23,9 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="footer-section">
-          <h4>Palcos</h4>
+          <h4>Onde atuamos</h4>
           <ul className="footer-links">
+            <li><a href="#events">Palcos & Festivais</a></li>
             <li><a href="#events">Casamentos</a></li>
             <li><a href="#events">Aniversários</a></li>
             <li><a href="#events">Eventos Corporativos</a></li>
@@ -34,18 +36,16 @@ const Footer: React.FC = () => {
         <div className="footer-section">
           <h4>Contacto</h4>
           <div className="contact-info">
-            <p>📞 +351 999 999 999</p>
-            <p>📧 contacto@sonsdecena.pt</p>
-            <p>📍 Lisboa, Portugal</p>
+            <p>📞 +351 934 460 912</p>
+            <p>📧 carlalopes@dist-post.com</p>
+            <p>📍 Porto, Portugal</p>
           </div>
         </div>
         
         <div className="footer-section">
-          <h4>Horário</h4>
+          <h4>🕐 Horário</h4>
           <div className="hours">
-            <p>Segunda - Sexta: 9h - 18h</p>
-            <p>Sábado: 9h - 16h</p>
-            <p>Domingo: Fechado</p>
+            <p>Segunda a Sexta: 9h – 18h</p>
           </div>
         </div>
       </div>
@@ -59,6 +59,8 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      
     </footer>
   );
 };
