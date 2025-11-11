@@ -409,10 +409,9 @@
 
 .production-launch-title {
   font-size: 3rem;
-  font-weight: 800;
-  color: #ffe265;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 12px 35px rgba(255, 208, 81, 0.4);
+  color: #FFD700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
 
 .production-launch-lead {
