@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Hero.css';
 import Contact from './Contact';
 import SingerSlider from './SingerSlider';
+import NewsletterSection from './NewsletterSection';
 
 // Importar a imagem do banner
 import bannerImage from '../assets/images/banner/banner.jpg';
@@ -53,6 +54,42 @@ const Hero: React.FC = () => {
       <section id="singers" className="singers-section">
         <SingerSlider />
       </section>
+
+      <section className="production-launch-section" id="producao">
+        <div className="production-launch-container">
+          <div className="production-launch-content">
+            <div className="production-launch-intro">
+              <h2 className="production-launch-title">🎛 Produção &amp; Lançamento</h2>
+              <p className="production-launch-lead">
+                Há talento que não pode esperar — e som que merece chegar mais longe. No Sons de Cena, não
+                ficamos só à escuta: produzimos, orientamos e lançamos.
+              </p>
+            </div>
+            <div className="production-launch-grid">
+              <div className="production-launch-card">
+                <span className="production-launch-icon">🎵</span>
+                <p className="production-launch-text">Produção musical com identidade.</p>
+              </div>
+              <div className="production-launch-card">
+                <span className="production-launch-icon">🚀</span>
+                <p className="production-launch-text">Estratégia de lançamento em plataformas digitais.</p>
+              </div>
+              <div className="production-launch-card">
+                <span className="production-launch-icon">📈</span>
+                <p className="production-launch-text">Planeamento de presença e impacto.</p>
+              </div>
+            </div>
+            <p className="production-launch-closing">
+              O teu som não precisa de sorte. Precisa de estratégia. E nós tratamos disso.
+            </p>
+          </div>
+          <div className="production-launch-media" aria-hidden="true">
+            <div className="production-launch-overlay" />
+          </div>
+        </div>
+      </section>
+
+      <NewsletterSection />
 
       <section className="about-section" id="about">
         <div className="about-container">

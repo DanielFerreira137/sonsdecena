@@ -7,6 +7,29 @@
   overflow: hidden;
 }
 
+.hero::before,
+.hero::after {
+  content: '♪';
+  position: absolute;
+  font-size: 6rem;
+  color: rgba(255, 226, 101, 0.1);
+  animation: floatNotes 15s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero::before {
+  top: 15%;
+  left: 8%;
+  animation-delay: 0s;
+}
+
+.hero::after {
+  bottom: 20%;
+  right: 10%;
+  animation-delay: -7.5s;
+}
+
 .hero-background {
   position: absolute;
   top: 0;
@@ -178,21 +201,32 @@
 /* About Section Styles */
 .about-section {
   padding: 6rem 0;
-  background: linear-gradient(180deg, #050A14 0%, #030609 50%, #010203 100%);
+  background: transparent;
   position: relative;
   overflow: hidden;
 }
 
-.about-section::before {
-  content: '';
+.about-section::before,
+.about-section::after {
+  content: '♪';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23FFD700" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-  opacity: 0.3;
+  font-size: 5rem;
+  color: rgba(255, 226, 101, 0.1);
+  animation: floatNotes 13s ease-in-out infinite;
+  pointer-events: none;
   z-index: 0;
+}
+
+.about-section::before {
+  top: 15%;
+  left: 10%;
+  animation-delay: -2s;
+}
+
+.about-section::after {
+  bottom: 20%;
+  right: 12%;
+  animation-delay: -8s;
 }
 
 .about-container {
@@ -295,7 +329,7 @@
 /* Singers Section Styles */
 .singers-section {
   padding: 6rem 0;
-  background: linear-gradient(180deg, #0F1F3A 0%, #0A1428 50%, #050A14 100%);
+  background: transparent;
   position: relative;
   overflow: hidden;
 }
@@ -310,4 +344,179 @@
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23FFD700" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
   opacity: 0.3;
   z-index: 0;
+}
+
+.singers-section::after {
+  content: '♪';
+  position: absolute;
+  font-size: 5.5rem;
+  color: rgba(255, 226, 101, 0.12);
+  animation: floatNotes 14s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  animation-delay: -5s;
 } 
+
+/* Production & Launch Section */
+.production-launch-section {
+  position: relative;
+  padding: 6rem 0;
+  background: transparent;
+  color: #f7f7fb;
+  overflow: hidden;
+}
+
+.production-launch-section::before,
+.production-launch-section::after {
+  content: '♪';
+  position: absolute;
+  font-size: 6.5rem;
+  color: rgba(255, 226, 101, 0.1);
+  animation: floatNotes 16s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.production-launch-section::before {
+  top: 20%;
+  right: 8%;
+  animation-delay: -3s;
+}
+
+.production-launch-section::after {
+  bottom: 25%;
+  left: 7%;
+  animation-delay: -10s;
+}
+
+.production-launch-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  align-items: stretch;
+}
+
+.production-launch-content {
+  position: relative;
+  z-index: 1;
+}
+
+.production-launch-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffe265;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 12px 35px rgba(255, 208, 81, 0.4);
+}
+
+.production-launch-lead {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+}
+
+.production-launch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.production-launch-card {
+  position: relative;
+  background: rgba(12, 18, 46, 0.75);
+  border-radius: 22px;
+  padding: 1.75rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 226, 101, 0.12);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.production-launch-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 70px rgba(255, 226, 101, 0.25);
+}
+
+.production-launch-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.production-launch-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.production-launch-closing {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffe265;
+}
+
+.production-launch-media {
+  position: relative;
+  min-height: 380px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255, 86, 173, 0.5), rgba(87, 92, 255, 0.6));
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.45);
+}
+
+.production-launch-media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  opacity: 0.7;
+}
+
+.production-launch-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(5, 6, 20, 0.1) 0%, rgba(5, 6, 20, 0.85) 100%);
+}
+
+@media (max-width: 992px) {
+  .production-launch-container {
+    grid-template-columns: 1fr;
+  }
+
+  .production-launch-media {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .production-launch-section {
+    padding: 4.5rem 0;
+  }
+
+  .production-launch-title {
+    font-size: 2.3rem;
+  }
+
+  .production-launch-lead {
+    font-size: 1.1rem;
+  }
+}
+
+/* Animation for floating musical notes */
+@keyframes floatNotes {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-20px) rotate(8deg);
+    opacity: 0.2;
+  }
+}

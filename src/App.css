@@ -11,14 +11,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #1a1a2e;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 214, 102, 0.12), transparent 32%),
+    radial-gradient(circle at 88% 6%, rgba(255, 110, 216, 0.14), transparent 40%),
+    radial-gradient(circle at 50% 60%, rgba(71, 53, 173, 0.18), transparent 55%),
+    linear-gradient(180deg, #020714 0%, #051127 22%, #0b1733 45%, #171639 68%, #2c1343 85%, #3a1044 100%);
   color: #fff;
   overflow-x: hidden;
 }
 
 .App {
   min-height: 100vh;
-  background: #1a1a2e;
+  background: transparent;
 }
 
 .main-content {
