@@ -48,6 +48,7 @@ const Header: React.FC = () => {
             <li><Link to="/#about" onClick={handleSobreNosClick} className="nav-link">Sobre Nós</Link></li>
             <li><Link to="/artists" className="nav-link">Artistas</Link></li>
             <li><Link to="/events" className="nav-link">Eventos</Link></li>
+            <li><Link to="/nova-era" className="nav-link">Nova Era</Link></li>
             <li><Link to="/#contact" onClick={handleContatoClick} className="nav-link">Contacto</Link></li>
           </ul>
         </nav>

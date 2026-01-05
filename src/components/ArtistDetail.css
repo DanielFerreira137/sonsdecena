@@ -532,4 +532,10 @@
   .event-image {
     height: 120px;
   }
+}
+
+/* LPs Section Styles */
+.lps-section {
+  margin-top: 3rem;
+  width: 100%;
 } 

@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
             <div className="production-launch-intro">
               <h2 className="production-launch-title">🎛 Produção &amp; Lançamento</h2>
               <p className="production-launch-lead">
-                Há talento que não pode esperar — e som que merece chegar mais longe. No Sons de Cena, não
+                Há talento que não pode esperar e som que merece chegar mais longe. No Sons de Cena, não
                 ficamos só à escuta: produzimos, orientamos e lançamos.
               </p>
             </div>

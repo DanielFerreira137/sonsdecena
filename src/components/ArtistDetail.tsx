@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useArtistsWithCategories } from '../hooks/useArtistsWithCategories';
 import { useEventsForArtist } from '../hooks/useEventsForArtist';
+import { useLPsForArtist } from '../hooks/useLPsForArtist';
+import LPSlider from './LPSlider';
 import './ArtistDetail.css';
 
 
@@ -11,6 +13,7 @@ const ArtistDetail: React.FC = () => {
   const navigate = useNavigate();
   const { artists: singers, loading, error } = useArtistsWithCategories();
   const { events, loading: eventsLoading, error: eventsError } = useEventsForArtist(id || '');
+  const { lps, loading: lpsLoading, error: lpsError } = useLPsForArtist(id || '');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -215,6 +218,11 @@ const ArtistDetail: React.FC = () => {
                 )}
               </div>
             </div>
+          </div>
+
+          {/* Seção de LPs */}
+          <div className="lps-section">
+            <LPSlider lps={lps} loading={lpsLoading} error={lpsError} />
           </div>
         </div>
       </div>

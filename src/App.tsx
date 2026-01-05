@@ -8,6 +8,7 @@ import Hero from './components/Hero';
 import ArtistsList from './components/ArtistsList';
 import ArtistDetail from './components/ArtistDetail';
 import EventsPage from './components/EventsPage';
+import NovaEraPage from './components/NovaEraPage';
 import Footer from './components/Footer';
 import { firestore } from './firebase';
 import { collection, getDocs } from 'firebase/firestore';
@@ -25,6 +26,11 @@ const ArtistsPage: React.FC = () => {
 // Events page component
 const EventsPageComponent: React.FC = () => {
   return <EventsPage />;
+};
+
+// Nova Era page component
+const NovaEraPageComponent: React.FC = () => {
+  return <NovaEraPage />;
 };
 
 function App() {
@@ -100,6 +106,7 @@ function App() {
             <Route path="/artists" element={<ArtistsPage />} />
             <Route path="/events" element={<EventsPageComponent />} />
             <Route path="/artist/:id" element={<ArtistDetail />} />
+            <Route path="/nova-era" element={<NovaEraPageComponent />} />
           </Routes>
         </main>
         <Footer />

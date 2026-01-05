@@ -41,7 +41,7 @@ const NewsletterSection: React.FC = () => {
         <div className="newsletter-content">
           <h2 className="newsletter-title">🔔 Fica em Sintonia</h2>
           <p className="newsletter-description">
-            A cena não pára — e tu não vais querer perder o próximo som. Subscreve a newsletter Sons de Cena e recebe:
+            A cena não pára e tu não vais querer perder o próximo som. Subscreve a newsletter Sons de Cena e recebe:
           </p>
           <ul className="newsletter-benefits">
             <li>🎶 Novos lançamentos antes de toda a gente.</li>
