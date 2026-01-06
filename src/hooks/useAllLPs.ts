@@ -48,12 +48,15 @@ export const useAllLPs = () => {
             link2: data.link2
           });
           
+          // Handle novaEra field - check both camelCase and kebab-case, default to false
+          const novaEraValue = data.novaEra !== undefined ? data.novaEra : (data['nova-era'] !== undefined ? data['nova-era'] : false);
+          
           lpsData.push({
             id: doc.id,
             name: data.name || '',
             year: data.year || 0,
             preSave: data.preSave || data['pre-save'] || false, // Suporta ambos os formatos
-            novaEra: data.novaEra || data['nova-era'] || false, // Suporta ambos os formatos
+            novaEra: novaEraValue,
             photo: data.photo || '',
             singer: data.singer,
             link1: data.link1 || '',
