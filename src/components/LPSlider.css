@@ -21,23 +21,25 @@
   backdrop-filter: none;
   padding: 2rem 0;
   border: none;
+  position: relative;
+  width: 100%;
 }
 
 .lp-slider-track {
   display: flex;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
   width: 100%;
-  min-width: max-content;
 }
 
 .lp-slide {
-  min-width: 33.333%;
+  flex: 0 0 33.333%;
+  width: 33.333%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   padding: 0 1rem;
-  flex-shrink: 0;
-  height: 100%;
+  box-sizing: border-box;
 }
 
 .lp-slider-btn {
@@ -232,7 +234,8 @@
 /* Responsive design */
 @media (max-width: 1024px) {
   .lp-slide {
-    min-width: 50%;
+    flex: 0 0 50%;
+    width: 50%;
   }
 }
 
@@ -242,7 +245,8 @@
   }
 
   .lp-slide {
-    min-width: 100%;
+    flex: 0 0 100%;
+    width: 100%;
   }
 
   .lp-card {

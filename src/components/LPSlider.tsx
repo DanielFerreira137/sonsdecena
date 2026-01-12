@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './LPSlider.css';
 
 interface LP {
@@ -20,26 +20,52 @@ interface LPSliderProps {
 
 const LPSlider: React.FC<LPSliderProps> = ({ lps, loading, error }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [slidesPerView, setSlidesPerView] = useState(3);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
-  // Auto-slide effect (loop back to start when 2 slides left)
+  // Calculate slides per view based on screen size
+  useEffect(() => {
+    const updateSlidesPerView = () => {
+      if (window.innerWidth <= 768) {
+        setSlidesPerView(1);
+      } else if (window.innerWidth <= 1024) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(3);
+      }
+    };
+
+    updateSlidesPerView();
+    window.addEventListener('resize', updateSlidesPerView);
+    return () => window.removeEventListener('resize', updateSlidesPerView);
+  }, []);
+
+  // Auto-slide effect - only if there are more LPs than slides per view
   useEffect(() => {
     if (lps.length === 0) return;
+    
+    // Only auto-slide if there are more LPs than can be shown at once
+    if (lps.length <= slidesPerView) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => {
-        if (prevIndex >= lps.length - 3) {
+        const maxIndex = Math.max(0, lps.length - slidesPerView);
+        if (prevIndex >= maxIndex) {
           return 0;
         }
         return prevIndex + 1;
       });
-    }, 3000); // 3 seconds
+    }, 5000); // Increased to 5 seconds for better visibility
 
     return () => clearInterval(interval);
-  }, [lps.length]);
+  }, [lps.length, slidesPerView]);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => {
-      if (prevIndex >= lps.length - 3) {
+      const maxIndex = Math.max(0, lps.length - slidesPerView);
+      if (prevIndex >= maxIndex) {
         return 0;
       }
       return prevIndex + 1;
@@ -47,10 +73,54 @@ const LPSlider: React.FC<LPSliderProps> = ({ lps, loading, error }) => {
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? 0 : prevIndex - 1
-    );
+    setCurrentIndex((prevIndex) => {
+      if (prevIndex <= 0) {
+        return 0;
+      }
+      return prevIndex - 1;
+    });
   };
+
+  // Touch handlers for swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+
+    if (distance > minSwipeDistance) {
+      nextSlide();
+    } else if (distance < -minSwipeDistance) {
+      prevSlide();
+    }
+  };
+
+  // Calculate slide width percentage based on slides per view
+  const slideWidthPercent = 100 / slidesPerView;
+  const maxIndex = Math.max(0, lps.length - slidesPerView);
+
+  // Reset index when LPs change
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [lps.length]);
+
+  // Debug: Log when LPs data changes
+  useEffect(() => {
+    if (lps.length > 0) {
+      console.log('💿 LPs loaded in slider:', lps.length, 'albums');
+      console.log('📐 Slides per view:', slidesPerView, 'Slide width:', slideWidthPercent + '%');
+      console.log('🎯 Current index:', currentIndex, 'Max index:', maxIndex);
+      console.log('🔧 Transform:', `translateX(-${currentIndex * slideWidthPercent}%)`);
+    }
+  }, [lps.length, slidesPerView, slideWidthPercent, currentIndex, maxIndex]);
 
   if (loading) {
     return (
@@ -99,10 +169,19 @@ const LPSlider: React.FC<LPSliderProps> = ({ lps, loading, error }) => {
           ‹
         </button>
         
-        <div className="lp-slider-content">
+        <div 
+          className="lp-slider-content"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          ref={sliderRef}
+        >
           <div 
             className="lp-slider-track"
-            style={{ transform: `translateX(-${currentIndex * 33.333}%)` }}
+            style={{ 
+              transform: `translateX(-${currentIndex * slideWidthPercent}%)`,
+              display: 'flex'
+            }}
           >
             {lps.map((lp) => (
               <div key={lp.id} className="lp-slide">
@@ -157,7 +236,7 @@ const LPSlider: React.FC<LPSliderProps> = ({ lps, loading, error }) => {
         <button 
           className="lp-slider-btn next-btn" 
           onClick={nextSlide}
-          disabled={lps.length <= 3}
+          disabled={lps.length <= slidesPerView || currentIndex >= maxIndex}
           aria-label="Próximo LP"
         >
           ›

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useArtistsWithCategories } from '../hooks/useArtistsWithCategories';
 import './SingerSlider.css';
@@ -7,28 +7,51 @@ import './SingerSlider.css';
 
 const SingerSlider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [slidesPerView, setSlidesPerView] = useState(3);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
   const navigate = useNavigate();
   const { artists: singers, loading, error } = useArtistsWithCategories();
+  const sliderRef = useRef<HTMLDivElement>(null);
 
-  // Auto-slide effect (loop back to start when 2 slides left)
+  // Calculate slides per view based on screen size
+  useEffect(() => {
+    const updateSlidesPerView = () => {
+      if (window.innerWidth <= 768) {
+        setSlidesPerView(1);
+      } else if (window.innerWidth <= 1024) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(3);
+      }
+    };
+
+    updateSlidesPerView();
+    window.addEventListener('resize', updateSlidesPerView);
+    return () => window.removeEventListener('resize', updateSlidesPerView);
+  }, []);
+
+  // Auto-slide effect
   useEffect(() => {
     if (singers.length === 0) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => {
-        if (prevIndex >= singers.length - 3) {
+        const maxIndex = Math.max(0, singers.length - slidesPerView);
+        if (prevIndex >= maxIndex) {
           return 0;
         }
         return prevIndex + 1;
       });
-    }, 2000); // 2 seconds
+    }, 2000);
 
     return () => clearInterval(interval);
-  }, [singers.length]);
+  }, [singers.length, slidesPerView]);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => {
-      if (prevIndex >= singers.length - 3) {
+      const maxIndex = Math.max(0, singers.length - slidesPerView);
+      if (prevIndex >= maxIndex) {
         return 0;
       }
       return prevIndex + 1;
@@ -36,10 +59,46 @@ const SingerSlider: React.FC = () => {
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? 0 : prevIndex - 1
-    );
+    setCurrentIndex((prevIndex) => {
+      if (prevIndex <= 0) {
+        return 0;
+      }
+      return prevIndex - 1;
+    });
   };
+
+  // Touch handlers for swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+
+    if (distance > minSwipeDistance) {
+      nextSlide();
+    } else if (distance < -minSwipeDistance) {
+      prevSlide();
+    }
+  };
+
+  const slideWidth = 100 / slidesPerView;
+  const maxIndex = Math.max(0, singers.length - slidesPerView);
+
+  // Debug: Log when singers data changes
+  useEffect(() => {
+    if (singers.length > 0) {
+      console.log('🎤 Singers loaded in slider:', singers.length, 'artists');
+      console.log('📐 Slides per view:', slidesPerView, 'Slide width:', slideWidth + '%');
+    }
+  }, [singers.length, slidesPerView, slideWidth]);
 
   const handleArtistClick = (artistId: string) => {
     navigate(`/artist/${artistId}`);
@@ -90,10 +149,18 @@ const SingerSlider: React.FC = () => {
           ‹
         </button>
         
-        <div className="slider-content">
+        <div 
+          className="slider-content"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          ref={sliderRef}
+        >
           <div 
             className="slider-track"
-            style={{ transform: `translateX(-${currentIndex * 33.333}%)` }}
+            style={{ 
+              transform: `translateX(-${currentIndex * slideWidth}%)`
+            }}
           >
             {singers.map((singer, index) => (
               <div key={singer.id} className="singer-slide">
@@ -123,7 +190,11 @@ const SingerSlider: React.FC = () => {
           </div>
         </div>
         
-        <button className="slider-btn next-btn" onClick={nextSlide}>
+        <button 
+          className="slider-btn next-btn" 
+          onClick={nextSlide}
+          disabled={singers.length <= slidesPerView || currentIndex >= maxIndex}
+        >
           ›
         </button>
       </div>

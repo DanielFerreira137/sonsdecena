@@ -42,17 +42,19 @@
 .slider-track {
   display: flex;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  width: 100%;
-  min-width: max-content; /* Ensure track can accommodate all slides */
+  will-change: transform;
+  width: fit-content;
 }
 
 .singer-slide {
-  min-width: 33.333%; /* Shows 3 artists at a time */
+  width: 33.333%; /* Shows 3 artists at a time */
+  min-width: 33.333%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 1rem; /* Spacing between cards */
   flex-shrink: 0; /* Prevent shrinking */
+  box-sizing: border-box;
 }
 
 .singer-card {
@@ -192,6 +194,7 @@
 /* Responsive design */
 @media (max-width: 1024px) {
   .singer-slide {
+    width: 50%;
     min-width: 50%;
   }
   
@@ -225,6 +228,7 @@
   }
   
   .singer-slide {
+    width: 100%;
     min-width: 100%;
   }
   
@@ -244,10 +248,10 @@
   }
   
   .prev-btn {
-    left: -20px;
+    left: 5px;
   }
   
   .next-btn {
-    right: -20px;
+    right: 5px;
   }
 } 
