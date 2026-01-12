@@ -165,6 +165,7 @@
   .hero {
     min-height: auto;
     padding: 2rem 0;
+    padding-top: calc(70px + 2rem);
   }
   
   .hero-title {
