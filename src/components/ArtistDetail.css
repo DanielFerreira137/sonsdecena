@@ -424,13 +424,22 @@
 @media (max-width: 768px) {
   .artist-detail-container {
     padding: 0 2px;
-    padding-top: calc(80px + 1rem);
+    padding-top: 70px;
     padding-bottom: 1rem;
   }
   
   .artist-detail-wrapper {
     padding: 0 2px;
     max-width: 100%;
+  }
+
+  .artist-detail-content {
+    padding-top: 0;
+  }
+
+  .back-btn {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
   }
   
   .artist-detail-layout {
