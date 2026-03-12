@@ -1,0 +1,309 @@
+.wiki-container {
+  min-height: 100vh;
+  background: #1a1a2e;
+  padding: 2rem 0;
+  padding-top: calc(80px + 2rem);
+}
+
+.wiki-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.wiki-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.wiki-header h1 {
+  font-size: 3rem;
+  color: #FFD700;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.wiki-subtitle {
+  font-size: 1.2rem;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.wiki-section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.wiki-section h2 {
+  font-size: 2.2rem;
+  color: #FFD700;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.wiki-section h2 code {
+  background: rgba(255, 215, 0, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  font-size: 1.8rem;
+  color: #FFD700;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.wiki-description {
+  font-size: 1.1rem;
+  color: #fff;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.wiki-table {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+}
+
+.wiki-table table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.wiki-table thead {
+  background: rgba(255, 215, 0, 0.2);
+}
+
+.wiki-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: bold;
+  color: #FFD700;
+  border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.wiki-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wiki-table tr:hover {
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.wiki-table code {
+  background: rgba(255, 215, 0, 0.15);
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  color: #FFD700;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.wiki-example {
+  margin-top: 2rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.wiki-example h3 {
+  color: #FFD700;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.wiki-example pre {
+  background: #0a0a0a;
+  padding: 1.5rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.wiki-notes {
+  background: rgba(255, 215, 0, 0.1);
+  border-left: 4px solid #FFD700;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.wiki-notes ul {
+  list-style: none;
+  padding-left: 0;
+  color: #fff;
+  line-height: 1.8;
+}
+
+.wiki-notes li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.wiki-notes li::before {
+  content: "•";
+  color: #FFD700;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+}
+
+.wiki-notes li strong {
+  color: #FFD700;
+}
+
+.wiki-notes ul ul {
+  margin-top: 0.5rem;
+  padding-left: 2rem;
+}
+
+.wiki-notes ul ul li::before {
+  content: "→";
+  font-size: 1rem;
+}
+
+.wiki-info-box {
+  background: rgba(255, 215, 0, 0.1);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.wiki-info-box p {
+  margin: 0;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.wiki-info-box strong {
+  color: #FFD700;
+}
+
+.wiki-steps {
+  color: #fff;
+  line-height: 2;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.wiki-steps li {
+  margin-bottom: 0.5rem;
+}
+
+.wiki-steps code {
+  background: rgba(255, 215, 0, 0.15);
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  color: #FFD700;
+  font-family: 'Courier New', monospace;
+}
+
+.wiki-fields-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wiki-field-item {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  border-radius: 10px;
+  border-left: 4px solid #FFD700;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  color: #fff;
+}
+
+.field-name {
+  font-weight: bold;
+  color: #FFD700;
+}
+
+.field-type {
+  font-weight: bold;
+  color: #FFD700;
+}
+
+.field-value {
+  grid-column: 1 / -1;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.wiki-field-item code {
+  background: rgba(255, 215, 0, 0.15);
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  color: #FFD700;
+  font-family: 'Courier New', monospace;
+  margin: 0 0.3rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .wiki-container {
+    padding-top: calc(70px + 1rem);
+  }
+
+  .wiki-content {
+    padding: 0 1rem;
+  }
+
+  .wiki-header h1 {
+    font-size: 2rem;
+  }
+
+  .wiki-subtitle {
+    font-size: 1rem;
+  }
+
+  .wiki-section {
+    padding: 1.5rem;
+  }
+
+  .wiki-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .wiki-section h2 code {
+    font-size: 1.3rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .wiki-table {
+    font-size: 0.85rem;
+  }
+
+  .wiki-table th,
+  .wiki-table td {
+    padding: 0.7rem 0.5rem;
+  }
+
+  .wiki-example pre {
+    font-size: 0.75rem;
+    padding: 1rem;
+  }
+}
+

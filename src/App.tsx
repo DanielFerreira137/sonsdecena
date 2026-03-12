@@ -9,6 +9,7 @@ import ArtistsList from './components/ArtistsList';
 import ArtistDetail from './components/ArtistDetail';
 import EventsPage from './components/EventsPage';
 import NovaEraPage from './components/NovaEraPage';
+import WikiPage from './components/WikiPage';
 import Footer from './components/Footer';
 import { firestore } from './firebase';
 import { collection, getDocs } from 'firebase/firestore';
@@ -31,6 +32,11 @@ const EventsPageComponent: React.FC = () => {
 // Nova Era page component
 const NovaEraPageComponent: React.FC = () => {
   return <NovaEraPage />;
+};
+
+// Wiki page component
+const WikiPageComponent: React.FC = () => {
+  return <WikiPage />;
 };
 
 function App() {
@@ -107,6 +113,7 @@ function App() {
             <Route path="/events" element={<EventsPageComponent />} />
             <Route path="/artist/:id" element={<ArtistDetail />} />
             <Route path="/nova-era" element={<NovaEraPageComponent />} />
+            <Route path="/wiki" element={<WikiPageComponent />} />
           </Routes>
         </main>
         <Footer />
