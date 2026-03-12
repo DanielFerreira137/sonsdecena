@@ -41,12 +41,6 @@ const WikiPage: React.FC = () => {
                   <td>URL da foto do artista</td>
                 </tr>
                 <tr>
-                  <td><code>genre</code></td>
-                  <td>string</td>
-                  <td>❌ Não</td>
-                  <td>Género musical do artista</td>
-                </tr>
-                <tr>
                   <td><code>description</code></td>
                   <td>string</td>
                   <td>❌ Não</td>
@@ -112,11 +106,6 @@ const WikiPage: React.FC = () => {
                 <span className="field-value">Exemplo:</span> "https://exemplo.com/foto.jpg"
               </div>
               <div className="wiki-field-item">
-                <span className="field-name">Campo:</span> <code>genre</code>
-                <span className="field-type">Tipo:</span> <code>string</code>
-                <span className="field-value">Exemplo:</span> "Hip-Hop"
-              </div>
-              <div className="wiki-field-item">
                 <span className="field-name">Campo:</span> <code>description</code>
                 <span className="field-type">Tipo:</span> <code>string</code>
                 <span className="field-value">Exemplo:</span> "Descrição do artista..."
@@ -124,7 +113,15 @@ const WikiPage: React.FC = () => {
               <div className="wiki-field-item">
                 <span className="field-name">Campo:</span> <code>category</code>
                 <span className="field-type">Tipo:</span> <code>reference</code>
-                <span className="field-value">Como fazer:</span> Selecione tipo "Reference" → Escolha coleção "categories" → Selecione o documento
+                <span className="field-value">Como fazer:</span> 
+                <ol className="wiki-sub-steps">
+                  <li>Clique em "Adicionar campo"</li>
+                  <li>Digite o nome do campo: <code>category</code></li>
+                  <li>Selecione o tipo: <code>reference</code></li>
+                  <li>No campo "Caminho do documento", digite: <code>categories/[nome-da-categoria]</code></li>
+                  <li>Exemplo: <code>categories/rock-alternativo</code> ou <code>categories/hip-hop</code></li>
+                  <li>Clique em "Atualizar"</li>
+                </ol>
               </div>
               <div className="wiki-field-item">
                 <span className="field-name">Campo:</span> <code>email</code>
@@ -248,7 +245,15 @@ const WikiPage: React.FC = () => {
               <div className="wiki-field-item">
                 <span className="field-name">Campo:</span> <code>singer</code>
                 <span className="field-type">Tipo:</span> <code>reference</code>
-                <span className="field-value">Como fazer:</span> Selecione tipo "Reference" → Escolha coleção "singers" → Selecione o artista
+                <span className="field-value">Como fazer:</span> 
+                <ol className="wiki-sub-steps">
+                  <li>Clique em "Adicionar campo"</li>
+                  <li>Digite o nome do campo: <code>singer</code></li>
+                  <li>Selecione o tipo: <code>reference</code></li>
+                  <li>No campo "Caminho do documento", digite: <code>singers/[id-do-artista]</code></li>
+                  <li>Exemplo: <code>singers/abc123xyz</code> (use o ID do documento do artista)</li>
+                  <li>Clique em "Atualizar"</li>
+                </ol>
               </div>
               <div className="wiki-field-item">
                 <span className="field-name">Campo:</span> <code>photo</code>
@@ -356,7 +361,15 @@ const WikiPage: React.FC = () => {
               <div className="wiki-field-item">
                 <span className="field-name">Campo:</span> <code>singer</code>
                 <span className="field-type">Tipo:</span> <code>reference</code>
-                <span className="field-value">Como fazer:</span> Selecione tipo "Reference" → Escolha coleção "singers" → Selecione o artista
+                <span className="field-value">Como fazer:</span> 
+                <ol className="wiki-sub-steps">
+                  <li>Clique em "Adicionar campo"</li>
+                  <li>Digite o nome do campo: <code>singer</code></li>
+                  <li>Selecione o tipo: <code>reference</code></li>
+                  <li>No campo "Caminho do documento", digite: <code>singers/[id-do-artista]</code></li>
+                  <li>Exemplo: <code>singers/abc123xyz</code> (use o ID do documento do artista)</li>
+                  <li>Clique em "Atualizar"</li>
+                </ol>
               </div>
               <div className="wiki-field-item">
                 <span className="field-name">Campo:</span> <code>address</code>

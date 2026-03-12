@@ -218,6 +218,26 @@
   font-family: 'Courier New', monospace;
 }
 
+.wiki-sub-steps {
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+  color: #fff;
+  line-height: 1.8;
+}
+
+.wiki-sub-steps li {
+  margin-bottom: 0.3rem;
+}
+
+.wiki-sub-steps code {
+  background: rgba(255, 215, 0, 0.15);
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  color: #FFD700;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
 .wiki-fields-list {
   display: flex;
   flex-direction: column;
